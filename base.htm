@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="estilos.css" rel="stylesheet">
+    <title>VUE Exemplos</title>
+</head>
+<body >
+    
+    <div id="app">
+
+        <div class="box">
+            <h1>Componente </h1>
+            <div class="area">
+                <ul>
+                    <todo-item
+                    v-for="item in lista"
+                    v-bind:lista="item"
+                    v-bind:key="item.id"
+                  ></todo-item>
+
+                 
+
+                </ul>
+               
+            </div>
+        </div>
+        <div class="box">
+            <h1>actions </h1>
+            <div class="area">
+                <p>{{ mensagem }}</p>
+                <input v-model="mensagem"><br>
+                <button v-on:click="inverterMsg">Inverter Mensagem</button>
+               
+            </div>
+        </div>
+        <div class="box">
+            <h1>Lista simples </h1>
+            <div class="area">
+                <ol>
+                    <li v-for="item in lista">
+                      {{ item.texto }}
+                    </li>
+                </ol>
+               
+            </div>
+        </div>
+        <div class="box">
+            <h1>if </h1>
+            <div class="area">
+                <p v-if="visivel">Agora você me viu</p>
+               
+            </div>
+        </div>
+
+        <div class="box">
+            <h1>Start</h1>
+            <div class="area">
+                <span v-bind:title="mensagem">
+                    {{ mensagem }}
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="vue.js"></script>
+
+<script>
+
+    Vue.component('todo-item', {
+        props: ['lista'],
+        template: '<li>{{ lista.texto }}</li>'
+    });
+
+
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            mensagem: 'Hello Vue!',
+            visivel: true,
+            lista: [
+                { texto: 'Item 01' },
+                { texto: 'Item 02' },
+                { texto: 'Item 03' }
+            ]
+        },
+        created: function () {
+            //alert('created');
+            console.log('mensagem é: ' + this.mensagem)
+        },
+        methods: {
+            inverterMsg: function () {
+                this.mensagem = this.mensagem.split('').reverse().join('')
+            }
+        },
+        
+    })
+</script>
+
+</html>

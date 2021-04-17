@@ -1,0 +1,42 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+h1{font-weight: 800;
+    background: #003a69;
+    color: white;
+    padding: 10px;
+    margin: 0 0 12px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.box {
+    max-width: 350px;
+    margin: auto;
+    
+    border-radius: 5px;
+    margin: 40px;
+    border: 2px solid #003a69;;
+  }
+
+  .box .area{
+      margin: 15px;
+  }
+  
+.box button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .box button:hover {
+    opacity: 0.7;
+  }
+  
